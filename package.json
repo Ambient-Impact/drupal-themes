@@ -1,0 +1,13 @@
+{
+  "name": "ambientimpact-drupal-themes",
+  "version": "1.0.0",
+  "license": "GPL-2.0",
+  "repository": "gitlab:Ambient.Impact/drupal-themes",
+  "devDependencies": {
+    "grunt": "^1.0.0",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-sass": "^2.0.0"
+  },
+  "dependencies": {}
+}
