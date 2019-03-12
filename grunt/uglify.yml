@@ -1,0 +1,10 @@
+theme:
+  options:
+    compress:
+      drop_console: true
+  src:
+    - '{<%= themePaths %>}/{<%= javascriptPaths %>}/**/*.js'
+    - '!**/*.min.js'
+  ext: .min.js
+  extDot: last
+  expand: true

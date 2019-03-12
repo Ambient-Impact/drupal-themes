@@ -1,0 +1,8 @@
+theme:
+  options:
+    map: true
+  files:
+    - src: '{<%= themePaths %>}/{<%= stylesheetPaths %>}/**/*.css'
+      ext: .css
+      extDot: last
+      expand: true
