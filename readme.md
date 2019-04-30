@@ -1,5 +1,6 @@
-This respository contains the Drupal themes used on
-[ambientimpact.com](https://ambientimpact.com/) and other sites.
+This respository contains a Drupal base theme intended to be used across
+multiple sites (```ambientimpact_base```) and the theme used on
+[ambientimpact.com](https://ambientimpact.com/) (```ambientimpact_site```).
 
 Note that these depend on the
 [```ambientimpact_core```](https://gitlab.com/Ambient.Impact/drupal-modules)
