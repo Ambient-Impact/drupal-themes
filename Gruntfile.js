@@ -20,15 +20,15 @@ module.exports = function(grunt) {
 	}));
 
 	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-postcss');
 
 	grunt.registerTask('all', [
 		'sass',
-		'autoprefixer',
+		'postcss',
 	]);
 
 	grunt.registerTask('css', [
 		'sass',
-		'autoprefixer',
+		'postcss',
 	]);
 };
