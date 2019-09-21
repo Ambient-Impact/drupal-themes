@@ -10,3 +10,10 @@ declare modules as dependencies](https://www.drupal.org/project/drupal/issues/47
 **Warning**: while these are generally production-ready, they're not guaranteed
 to maintain a stable API and may occasionally contain bugs, being a
 work-in-progress. Stable releases may be provided at a later date.
+
+-----------------
+
+Cross-platform browser testing done via
+[BrowserStack](https://www.browserstack.com/).
+
+<img src="browserstack-logo.svg" alt="BrowserStack logo" width="128" />
