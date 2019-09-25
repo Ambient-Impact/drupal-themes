@@ -3,3 +3,6 @@ node_modules
 */assets/vendor
 .sass-cache
 sftp-config.json
+
+**/*.css
+**/*.css.map
