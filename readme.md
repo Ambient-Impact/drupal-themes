@@ -17,3 +17,28 @@ Cross-platform browser testing done via
 [BrowserStack](https://www.browserstack.com/).
 
 <img src="browserstack-logo.svg" alt="BrowserStack logo" width="128" />
+
+# Building
+
+## Installation
+
+To build the CSS for this project, you'll need to have
+[Node.js](https://nodejs.org/) installed. Once you've installed it, you'll have
+to install the [Grunt CLI](https://gruntjs.com/getting-started) globally from
+the commandline:
+
+```
+npm install -g grunt-cli
+```
+
+Once that's installed, you can then install all the required Node modules by
+running ```npm install``` in the project root.
+
+## Building
+
+To build everything, you can run ```grunt all``` in the commandline in the
+project root.
+
+To build specific things:
+
+* ```grunt css``` - builds all CSS files and their associated map files.
