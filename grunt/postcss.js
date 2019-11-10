@@ -13,7 +13,7 @@ module.exports = function(grunt, options) {
       },
       files: [{
         src:
-          '{<%= themePaths %>}/{<%= stylesheetPaths %>}/**/*.css',
+          '<%= extensionPaths %>/<%= stylesheetPaths %>/**/*.css',
         ext:  '.css',
         extDot: 'last',
         expand: true,
