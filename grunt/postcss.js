@@ -8,7 +8,8 @@ module.exports = function(grunt, options) {
           inline: false
         },
         processors: [
-          require('autoprefixer')
+          require('postcss-easing-gradients'),
+          require('autoprefixer'),
         ]
       },
       files: [{
