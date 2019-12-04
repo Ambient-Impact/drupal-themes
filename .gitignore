@@ -4,3 +4,6 @@ node_modules
 # Ignore generated CSS files and their associated map files.
 **/*.css
 **/*.css.map
+
+# Ignore generated icons.
+ambientimpact_site/images/icons/generated/*

@@ -34,6 +34,9 @@ npm install -g grunt-cli
 Once that's installed, you can then install all the required Node modules by
 running ```npm install``` in the project root.
 
+To build the favicons, you'll also need to install
+[ImageMagick](https://imagemagick.org/).
+
 ## Building
 
 To build everything, you can run ```grunt all``` in the commandline in the
@@ -42,3 +45,5 @@ project root.
 To build specific things:
 
 * ```grunt css``` - builds all CSS files and their associated map files.
+
+* ```grunt favicons``` - builds all the shortcut/browser icons for the theme, using [japrescott/grunt-favicons](https://github.com/japrescott/grunt-favicons); requires [ImageMagick](https://imagemagick.org/) to be installed.
