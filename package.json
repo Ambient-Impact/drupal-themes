@@ -6,7 +6,7 @@
   "devDependencies": {
     "autoprefixer": "^9.7.3",
     "grunt": "^1.0.4",
-    "grunt-favicons": "github:japrescott/grunt-favicons",
+    "grunt-favicons": "github:japrescott/grunt-favicons#6822886e57a14f7029215db85bd9b8e118364487",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "load-grunt-config": "^3.0.1",
