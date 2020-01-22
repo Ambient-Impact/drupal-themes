@@ -9,16 +9,10 @@
   @include abbr {
     // Don't apply to elements in Symfony VarDumper output.
     &:not(.sf-dump-note) {
-      border-bottom: $text-underline-thickness dotted;
+      // Override normalize.css.
+      border-bottom: none;
 
-      // Remove the default text decoration as it clashes with our underlines.
-      text-decoration: none;
-
-      @include text-underline(
-        $underline-style: dotted
-      ) {
-        border-bottom-width:  0;
-      }
+      text-decoration-thickness: $text-underline-thickness;
 
       cursor: help;
     }

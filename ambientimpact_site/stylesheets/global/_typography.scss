@@ -52,6 +52,9 @@
 ///
 @mixin furore-heading-underline-adjust {
   padding-bottom: 0.1em;
+  // For browsers that support it.
+  // @see https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset
+  text-underline-offset: 0.1em;
 }
 
 @include headings {
@@ -97,12 +100,10 @@
 @include headings($from: 1, $to: 2) {
   :link, :visited {
     .font-loaded-furore .layout-container & {
-      // Make fancy link underlines thicker for these as they have a large
-      // font size. Setting this as pixels avoids blurry rounding that
-      // we'd often get with ems, etc.
-      @include custom-property(
-        'fancy-link-underline-thickness', 3px
-      );
+      // Make link underlines thicker for these as they have a large font size.
+      // Setting this as pixels avoids blurry rounding that we'd often get with
+      // ems, etc.
+      text-decoration-thickness: 3px;
     }
   }
 }
