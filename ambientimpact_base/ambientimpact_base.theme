@@ -379,6 +379,28 @@ function ambientimpact_base_preprocess_field(&$variables, $hook) {
 }
 
 /**
+ * Prepares variables for image templates.
+ *
+ * This adds the 'loading="lazy"' attribute to all images that don't have a
+ * 'loading' attribute for browsers that support it.
+ *
+ * @see \template_preprocess_image()
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading
+ *
+ * @todo Remove this when we update to @link https://www.drupal.org/blog/drupal-9-1-0 Drupal 9.1 @endlink as it includes this in Drupal core as of that version.
+ */
+function ambientimpact_base_preprocess_image(array &$variables) {
+  if (
+    !empty($variables['attributes']['width']) &&
+    !empty($variables['attributes']['height']) &&
+    !isset($variables['attributes']['loading'])
+  ) {
+    $variables['attributes']['loading'] = 'lazy';
+  }
+}
+
+/**
  * Prepares variables for single local action link templates.
  *
  * Default template: menu-local-action.html.twig.
