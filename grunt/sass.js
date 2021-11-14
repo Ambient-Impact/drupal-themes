@@ -8,20 +8,16 @@ module.exports = function(grunt, options) {
 
   const moduleImporter = require('sass-module-importer');
 
-  const path = require('path');
-
-  const modulesPath = path.join(__dirname, '../../../modules/ambientimpact');
-
   return {
     theme: {
       options: {
         implementation: sass,
         // Pass the modules path to the importer so it can find any referenced
         // Node modules that the modules Sass requires.
-        importer:       moduleImporter({basedir: modulesPath}),
+        importer:       moduleImporter({basedir: options.modulesPath}),
         // Pass the modules path as an include path so the theme Sass can
         // reference files from modules without the full relative path.
-        includePaths:   [modulesPath],
+        includePaths:   [options.modulesPath],
         outputStyle:    'compressed',
         sourceMap:      true
       },
