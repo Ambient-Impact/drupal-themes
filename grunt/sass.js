@@ -8,6 +8,12 @@ module.exports = function(grunt, options) {
 
   const moduleImporter = require('sass-module-importer');
 
+  let includePaths = options.componentPaths.slice();
+
+  // Add the modules path as an include path so the theme Sass can reference
+  // files from modules without the full relative path.
+  includePaths.push(options.modulesPath);
+
   return {
     theme: {
       options: {
@@ -15,9 +21,7 @@ module.exports = function(grunt, options) {
         // Pass the modules path to the importer so it can find any referenced
         // Node modules that the modules Sass requires.
         importer:       moduleImporter({basedir: options.modulesPath}),
-        // Pass the modules path as an include path so the theme Sass can
-        // reference files from modules without the full relative path.
-        includePaths:   [options.modulesPath],
+        includePaths:   includePaths,
         outputStyle:    'compressed',
         sourceMap:      true
       },
