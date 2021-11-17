@@ -8,6 +8,7 @@ module.exports = function(grunt, options) {
 
   const moduleImporter = require('sass-module-importer');
 
+  // Make a copy of the component paths via Array.prototype.slice().
   let includePaths = options.componentPaths.slice();
 
   // Add the modules path as an include path so the theme Sass can reference

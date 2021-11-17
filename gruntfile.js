@@ -57,7 +57,7 @@ module.exports = function(grunt) {
       stylesheetPaths:  paths.stylesheets,
       javascriptPaths:  paths.javascript,
       modulesPath:      modulesPath,
-      componentPaths:   componentPaths
+      componentPaths:   componentPaths,
     }
   });
 
