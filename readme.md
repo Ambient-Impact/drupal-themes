@@ -4,8 +4,7 @@ multiple sites (```ambientimpact_base```) and the theme used on
 
 Note that these depend on the
 [```ambientimpact_core```](https://gitlab.com/Ambient.Impact/drupal-modules)
-module being present and enabled to function, but [Drupal themes can't yet
-declare modules as dependencies](https://www.drupal.org/project/drupal/issues/474684).
+module being present and enabled to function.
 
 **Warning**: while these are generally production-ready, they're not guaranteed
 to maintain a stable API and may occasionally contain bugs, being a
@@ -42,3 +41,9 @@ To build specific things:
 * ```grunt css``` - builds all CSS files and their associated map files.
 
 * ```grunt favicons``` - builds all the shortcut/browser icons for the theme, using [japrescott/grunt-favicons](https://github.com/japrescott/grunt-favicons); requires [ImageMagick](https://imagemagick.org/) to be installed.
+
+# Major breaking changes
+
+The following major version bumps indicate breaking changes:
+
+* 3.x - Now require [the 3.x branch of modules](https://gitlab.com/Ambient.Impact/drupal-modules), which now require Drupal 9. All development is now against that major version of Drupal.
