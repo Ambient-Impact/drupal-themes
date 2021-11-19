@@ -8,12 +8,22 @@ module.exports = function(grunt, options) {
 
   const moduleImporter = require('sass-module-importer');
 
+  const path = require('path');
+
   // Make a copy of the component paths via Array.prototype.slice().
   let includePaths = options.componentPaths.slice();
 
   // Add the modules path as an include path so the theme Sass can reference
   // files from modules without the full relative path.
   includePaths.push(options.modulesPath);
+
+  // Less than elegant way to include the local SassyCast.
+  //
+  // @see https://github.com/lucasmotta/sass-module-importer/issues/16
+  //   Open issue to add support for multiple importer support. When/if this is
+  //   resolved, we can add a second importer:
+  //   moduleImporter({basedir: path.join(__dirname, '..')})
+  includePaths.push(path.join(__dirname, '../node_modules/sassy-cast/dist'));
 
   return {
     theme: {

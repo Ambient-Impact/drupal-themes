@@ -13,7 +13,8 @@
     "postcss": "^8.3.5",
     "postcss-easing-gradients": "^3.0.1",
     "sass": "^1.43.4",
-    "sass-module-importer": "^1.4.0"
+    "sass-module-importer": "^1.4.0",
+    "sassy-cast": "github:KittyGiraudel/SassyCast#2.0.0"
   },
   "dependencies": {}
 }
