@@ -41,3 +41,9 @@ To build specific things:
 * ```grunt css``` - builds all CSS files and their associated map files.
 
 * ```grunt favicons``` - builds all the shortcut/browser icons for the theme, using [japrescott/grunt-favicons](https://github.com/japrescott/grunt-favicons); requires [ImageMagick](https://imagemagick.org/) to be installed.
+
+# Major breaking changes
+
+The following major version bumps indicate breaking changes:
+
+* 3.x - Now require [the 3.x branch of modules](https://gitlab.com/Ambient.Impact/drupal-modules), which now require Drupal 9. All development is now against that major version of Drupal.
