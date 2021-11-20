@@ -1,4 +1,5 @@
 module.exports = function(grunt, options) {
+
   'use strict';
 
   // grunt-sass requires that we pass the Sass implementation in the options,
@@ -45,4 +46,5 @@ module.exports = function(grunt, options) {
       }]
     }
   };
+
 };
