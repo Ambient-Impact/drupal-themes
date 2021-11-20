@@ -39,7 +39,7 @@ module.exports = function(grunt, options) {
       },
       files: [{
         src:
-          '<%= extensionPaths %>/<%= stylesheetPaths %>/**/*.scss',
+          '<%= pathTemplates.extensions %>/<%= pathTemplates.stylesheets %>/**/*.scss',
         ext:    '.css',
         extDot: 'last',
         expand: true,
