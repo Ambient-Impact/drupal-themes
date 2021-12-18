@@ -9,7 +9,7 @@ module.exports = function(grunt) {
   ).toString().trim();
 
   const componentPaths = JSON.parse(childProcess.execSync(
-    'drush ambientimpact:component-paths'
+    'drush ambientimpact:component-paths --providers=ambientimpact_*'
   ).toString().trim());
 
   let pathTemplates = {
