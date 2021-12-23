@@ -8,6 +8,10 @@ module.exports = function(grunt) {
     'drush ambientimpact:modules-path'
   ).toString().trim();
 
+  const baseThemePath = childProcess.execSync(
+    'drush drupal:directory ambientimpact_base'
+  ).toString().trim();
+
   const componentPaths = JSON.parse(childProcess.execSync(
     'drush ambientimpact:component-paths --providers=ambientimpact_*'
   ).toString().trim());
@@ -58,6 +62,7 @@ module.exports = function(grunt) {
     data: {
       pathTemplates:  pathTemplates,
       modulesPath:    modulesPath,
+      baseThemePath:  baseThemePath,
       componentPaths: componentPaths,
     }
   });
