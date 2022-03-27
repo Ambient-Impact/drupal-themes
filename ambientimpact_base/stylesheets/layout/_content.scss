@@ -1,0 +1,109 @@
+// -----------------------------------------------------------------------------
+//   Layout content partial
+// -----------------------------------------------------------------------------
+
+@use 'config';
+@use 'breakpoints';
+@use 'sass/helpers/breakpoint';
+@use 'sidebars';
+
+///
+/// Apply styles when the content column is at a minimum width.
+///
+/// This specifically applies styles in two separate breakpoint ranges:
+///
+/// 1. When the content column does not have sidebars beside it but is wide
+///    enough to display two columns comfortably.
+///
+/// 2. When the content column does have sidebars beside it *and* a bit more
+///    viewport width is available to display two columns comfortably.
+///
+/// This works around the lack of container queries (at the time of writing) to
+/// prevent horizontal overflow when the viewport is just wide enough for
+/// sidebars beside the content column, as that edge case results in less space
+/// for the content column. A more visual explanation, where C is content and S
+/// is a sidebar:
+///
+/// Narrow screen, single column:
+/// |  C  |
+///
+/// Slightly wider, two column content but no sidebars yet:
+/// |  C  |  C  |
+///
+/// Wide enough for sidebar to appear beside content, revert content back to
+/// single column:
+/// | S |  C  | S |
+///
+/// Two column content when there is enough horizontal space for it:
+/// | S |  C  |  C  | S |
+///
+/// @require {mixin} breakpoint.on
+///
+/// @see https://caniuse.com/css-container-queries
+///
+@mixin on-min-width($min-width) {
+
+  // @include breakpoint.on(
+  //   '>=' + (config.$gutter * 2 + $min-width),
+  //   // '<layout-with-one-sidebar',
+  //   '<layout-with-both-sidebars'
+  // ) {
+  //   @content;
+  // }
+
+  @include sidebars.on-sidebar(one) {
+    @include breakpoint.on(
+      '>=' + (config.$gutter * 2 + $min-width),
+      '<layout-with-one-sidebar',
+    ) {
+      @content;
+    }
+  }
+
+  @include sidebars.on-sidebar(both) {
+    @include breakpoint.on(
+      '>=' + (config.$gutter * 2 + $min-width),
+      '<layout-with-both-sidebars'
+    ) {
+      @content;
+    }
+  }
+
+  // Causes Dart Sass deprecation message in include-media regarding / division:
+
+  // @include sidebars.on-sidebar-beside-content(one) {
+  //   @include breakpoint.on(
+  //     '>=' + (
+  //       config.$gutter * 2 +
+  //       config.$gap +
+  //       config.$sidebar-column-min-width +
+  //       $min-width
+  //     )
+  //   ) {
+  //     @content;
+  //   }
+  // }
+
+  @include sidebars.on-sidebar-beside-content(both) {
+    @include breakpoint.on(
+      '>=' + (
+        config.$gutter * 2 +
+        config.$gap * 2 +
+        config.$sidebar-column-min-width * 2 +
+        $min-width + 10em // <-- Why does this work? Where is that 10em from?
+      )
+    ) {
+      @content;
+    }
+  }
+
+  @debug '---------------------------------------------------------------';
+  @debug config.$gutter;
+  @debug config.$gap;
+  @debug config.$sidebar-column-min-width;
+  @debug config.$gutter * 2 +
+         config.$gap * 2 +
+         config.$sidebar-column-min-width * 2 +
+         $min-width;
+
+}
