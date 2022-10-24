@@ -78,4 +78,6 @@ module.exports = function(grunt) {
     'postcss',
   ]);
 
+  grunt.registerTask('default', ['all']);
+
 };
