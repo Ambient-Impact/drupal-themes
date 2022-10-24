@@ -14,6 +14,6 @@
     "postcss-easing-gradients": "^3.0.1",
     "sass": "^1.43.4",
     "sass-module-importer": "^1.4.0",
-    "sassy-cast": "github:KittyGiraudel/SassyCast#2.0.0"
+    "sassy-cast": "github:Ambient-Impact/SassyCast#adbbd499bb36eb0c7015ae6f23c00e3a78dc54b3"
   }
 }
