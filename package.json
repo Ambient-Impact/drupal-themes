@@ -4,16 +4,10 @@
   "license": "GPL-2.0",
   "repository": "gitlab:Ambient.Impact/drupal-themes",
   "devDependencies": {
-    "@lodder/grunt-postcss": "^3.0.1",
     "autoprefixer": "^10.2.6",
-    "grunt": "^1.5.3",
-    "grunt-favicons": "github:japrescott/grunt-favicons#f9b4f3d99a7d05632f6291564086bb72bd43cdcc",
-    "grunt-sass": "^3.1.0",
-    "load-grunt-config": "^3.0.2",
     "postcss": "^8.3.5",
     "postcss-easing-gradients": "^3.0.1",
     "sass": "^1.43.4",
-    "sass-module-importer": "^1.4.0",
     "sassy-cast": "github:Ambient-Impact/SassyCast#adbbd499bb36eb0c7015ae6f23c00e3a78dc54b3"
   }
 }
