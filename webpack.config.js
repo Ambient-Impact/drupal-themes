@@ -104,7 +104,6 @@ const componentsJsonPath = require.resolve(
 const componentPaths = JSON.parse(
   fs.readFileSync(componentsJsonPath).toString()
 );
-// console.log(componentPaths);
 
 module.exports = {
 
@@ -129,6 +128,9 @@ module.exports = {
     // temporary directory by default.
     filename: 'temp/[name].js',
 
+    // Asset bundling/copying disabled for now.
+    //
+    // @see https://stackoverflow.com/questions/68737296/disable-asset-bundling-in-webpack-5#68768905
     assetModuleFilename: '[file]',
 
   },
@@ -168,7 +170,9 @@ module.exports = {
                   baseThemeImporter,
                 ],
                 includePaths: componentPaths.map(function(relativePath) {
-                  return path.resolve(path.dirname(componentsJsonPath), relativePath);
+                  return path.resolve(
+                    path.dirname(componentsJsonPath), relativePath
+                  );
                 }),
               }
             },
@@ -178,6 +182,9 @@ module.exports = {
      {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
         type: 'asset/resource',
+        // Asset bundling/copying disabled for now.
+        //
+        // @see https://stackoverflow.com/questions/68737296/disable-asset-bundling-in-webpack-5#68768905
         generator: {
           emit: false,
         },
