@@ -20,7 +20,7 @@ const distPath = '.webpack-dist';
  *
  * @type {Boolean}
  */
-const outputToSourcePaths = false;
+const outputToSourcePaths = true;
 
 /**
  * Get globbed entry points.
