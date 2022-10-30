@@ -2,6 +2,7 @@
 
 const autoprefixer = require('autoprefixer');
 const fs = require('fs');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -59,6 +60,48 @@ function getGlobbedEntries() {
 let plugins = [
   new RemoveEmptyScriptsPlugin(),
   new MiniCssExtractPlugin(),
+  // @see https://www.npmjs.com/package/favicons-webpack-plugin
+  //
+  // @todo Switch to using the generated manifest.webmanifest and
+  //   browserconfig.xml? The paths don't seem easily customizable.
+  new FaviconsWebpackPlugin({
+
+    // @todo Create a maskable logo variant for the logoMaskable config option.
+    //
+    // @see https://maskable.app/
+    logo:         './ambientimpact_site/images/icons/icon.png',
+    outputPath:   './ambientimpact_site/images/icons/generated',
+
+    mode:     'webapp',
+    devMode:  'webapp',
+
+    favicons: {
+
+      appName:      'Ambient.Impact',
+      appShortName: 'Ambient.Impact',
+
+      start_url: '/',
+
+      background: '#ffffff',
+      theme_color: '#c07300',
+
+      display:  'browser',
+      lang:     'en-CA',
+      // @todo This doesn't seem to add a version query string?
+      version:  '1',
+
+      icons: {
+
+        // We provide our own rather than have them generated.
+        windows: false,
+
+        yandex: false,
+
+      },
+
+    },
+
+  }),
 ];
 
 if (isDev === true) {
