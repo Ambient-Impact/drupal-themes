@@ -1,6 +1,9 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const baseThemeImporter = require(
+  'ambientimpact-drupal-themes/baseThemeImporter'
+);
 const fs = require('fs');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const glob = require('glob');
@@ -111,43 +114,6 @@ if (isDev === true) {
     })
   );
 }
-
-/** @type {String} The base theme prefix. */
-const baseThemePrefix = 'base:';
-
-/**
- * Sass importer to resolve base theme stylesheet paths.
- *
- * @param {String} url
- *   The path to import or use.
- *
- * @param {String} prev
- *   The previously resolved path.
- *
- * @param {Function} done
- *   Callback to invoke on async completion.
- *
- * @return {Promise|null}
- *
- * @see https://github.com/sass/node-sass#importer--v200---experimental
- *   Importer callback documentation.
- */
-function baseThemeImporter(url, prev, done) {
-
-  if (url.indexOf(baseThemePrefix) === 0) {
-    return done({
-      file: path.normalize(
-        './ambientimpact_base/stylesheets/' + url.substring(
-          baseThemePrefix.length
-        )
-      )
-    });
-  }
-
-  // If we didn't match, return null so that this is passed on
-  return null;
-
-};
 
 const componentsJsonPath = require.resolve(
   'ambientimpact-drupal-modules/components.json'
