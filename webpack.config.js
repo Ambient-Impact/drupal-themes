@@ -116,7 +116,7 @@ const componentPaths = JSON.parse(
 
 module.exports = {
 
-  mode:     'development',
+  mode:     isDev ? 'development' : 'production',
   devtool:  isDev ? 'eval-cheap-module-source-map': false,
 
   entry: getGlobbedEntries,
