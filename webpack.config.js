@@ -6,6 +6,7 @@ const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
 
 const isDev = (process.env.NODE_ENV !== 'production');
 
@@ -60,6 +61,14 @@ let plugins = [
   new MiniCssExtractPlugin(),
 ];
 
+if (isDev === true) {
+  plugins.push(
+    new SourceMapDevToolPlugin({
+      filename: '[file].map',
+    })
+  );
+}
+
 /** @type {String} The base theme prefix. */
 const baseThemePrefix = 'base:';
 
@@ -108,7 +117,7 @@ const componentPaths = JSON.parse(
 module.exports = {
 
   mode:     'development',
-  devtool:  isDev ? 'eval':  false,
+  devtool:  isDev ? 'eval-cheap-module-source-map': false,
 
   entry: getGlobbedEntries,
 
