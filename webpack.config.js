@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer');
 const baseThemeImporter = require(
   'ambientimpact-drupal-themes/baseThemeImporter'
 );
-const fs = require('fs');
+const componentPaths = require('ambientimpact-drupal-modules/componentPaths');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -115,14 +115,6 @@ if (isDev === true) {
   );
 }
 
-const componentsJsonPath = require.resolve(
-  'ambientimpact-drupal-modules/components.json'
-);
-
-const componentPaths = JSON.parse(
-  fs.readFileSync(componentsJsonPath).toString()
-);
-
 module.exports = {
 
   mode:     isDev ? 'development' : 'production',
@@ -187,11 +179,7 @@ module.exports = {
                 importer: [
                   baseThemeImporter,
                 ],
-                includePaths: componentPaths.map(function(relativePath) {
-                  return path.resolve(
-                    path.dirname(componentsJsonPath), relativePath
-                  );
-                }),
+                includePaths: componentPaths().all,
               }
             },
           },
