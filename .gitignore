@@ -5,6 +5,3 @@
 # Webpack Encore generated files.
 entrypoints.json
 manifest.json
-
-# Ignore generated icons.
-ambientimpact_site/images/icons/generated/*
