@@ -10,6 +10,16 @@
     "./package.json": "./package.json",
     "./baseThemeImporter": "./ambientimpact_base/javascript/base_theme_importer.js"
   },
+  "yarn.build": {
+    "input": [
+      "**/stylesheets/**/*.scss",
+      "ambientimpact_site/images/icons/*.{png,svg}"
+    ],
+    "output": [
+      "**/stylesheets/**/*.css",
+      "ambientimpact_site/images/icons/generated/*"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
