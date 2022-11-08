@@ -7,6 +7,8 @@ const {pathToFileURL} = require('url');
 const baseThemePrefix = 'base:';
 
 const baseStylesheetsPath = path.join(
+  // @todo Get the package path from Yarn's PnP API so we don't need to export
+  //   "./package.json"?
   path.dirname(require.resolve('ambientimpact-drupal-themes/package.json')),
   'ambientimpact_base/stylesheets'
 );

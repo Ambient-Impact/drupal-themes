@@ -6,6 +6,10 @@
   "scripts": {
     "build": "webpack --progress --config webpack.config.js"
   },
+  "exports": {
+    "./package.json": "./package.json",
+    "./baseThemeImporter": "./ambientimpact_base/javascript/base_theme_importer.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
