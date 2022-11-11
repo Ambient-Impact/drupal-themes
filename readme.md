@@ -2,45 +2,116 @@ This respository contains a Drupal base theme intended to be used across
 multiple sites (```ambientimpact_base```) and the theme used on
 [ambientimpact.com](https://ambientimpact.com/) (```ambientimpact_site```).
 
-Note that these depend on the
-[```ambientimpact_core```](https://gitlab.com/Ambient.Impact/drupal-modules)
-module being present and enabled to function.
+Note that these require various
+[```ambientimpact_*```](https://gitlab.com/Ambient.Impact/drupal-modules)
+modules being present in your Drupal installation.
 
 **Warning**: while these are generally production-ready, they're not guaranteed
 to maintain a stable API and may occasionally contain bugs, being a
 work-in-progress. Stable releases may be provided at a later date.
 
------------------
+----
 
-# Building
+# Requirements
 
-## Installation
+* [Drupal 9](https://www.drupal.org/download) ([Drupal 8 is end-of-life](https://www.drupal.org/psa-2021-11-30))
 
-To build the CSS for this project, you'll need to have
-[Node.js](https://nodejs.org/) installed. Once you've installed it, you'll have
-to install the [Grunt CLI](https://gruntjs.com/getting-started) globally from
-the commandline:
+* PHP 8
+
+* [Composer](https://getcomposer.org/)
+
+## Drupal dependencies
+
+* Several [```ambientimpact_*``` modules](https://github.com/Ambient-Impact/drupal-modules) must be present.
+
+## Front-end dependencies
+
+To build front-end assets for this project, [Node.js](https://nodejs.org/) and
+[Yarn](https://yarnpkg.com/) are required.
+
+----
+
+# Installation
+
+## Composer
+
+This is a partly legacy codebase, and as such, Composer installation of the
+themes in this repository isn't supported directly. You'll have to check out
+the repository into your Drupal themes directory, optionally as a Git
+submodule. The long term plan is to refactor these as individual Composer
+packages, but for now, manual installation is required.
+
+## Front-end assets
+
+To build front-end assets for this project, you'll need to install
+[Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/).
+
+This package makes use of [Yarn
+Workspaces](https://yarnpkg.com/features/workspaces) and references other local
+workspace dependencies. In the `package.json` in the root of your Drupal
+project, you'll need to add the following:
+
+```json
+"workspaces": [
+  "<web directory>/themes/ambientimpact/*"
+],
+```
+
+where `<web directory>` is your public Drupal directory name, `web` by default.
+Once those are defined, add the following to the `"dependencies"` section of
+your top-level `package.json`:
+
+```json
+"ambientimpact-drupal-themes": "workspace:^5"
+```
+
+Then run `yarn install` and let Yarn do the rest.
+
+### Optional: install yarn.BUILD
+
+While not required, we recommend installing [yarn.BUILD](https://yarn.build/) to
+make building all of the front-end assets even easier.
+
+### Optional: use ```nvm```
+
+If you want to be sure you're using the same Node.js version we're using, we
+support using [Node Version Manager (```nvm```)](https://github.com/nvm-sh/nvm)
+([Windows port](https://github.com/coreybutler/nvm-windows)). Once ```nvm``` is
+installed, you can simply navigate to the project root and run ```nvm install```
+to install the appropriate version contained in the ```.nvmrc``` file.
+
+Note that if you're using the [Windows
+port](https://github.com/coreybutler/nvm-windows), it [does not support
+```.nvmrc```
+files](https://github.com/coreybutler/nvm-windows/wiki/Common-Issues#why-isnt-nvmrc-supported-why-arent-some-nvm-for-macoslinux-features-supported),
+so you'll have to provide the version contained in the ```.nvmrc``` as a
+parameter: ```nvm install <version>``` (without the ```<``` and ```>```).
+
+This step is not required, and may be dropped in the future as Node.js is fairly
+mature and stable at this point.
+
+----
+
+# Building front-end assets
+
+We use [Webpack](https://webpack.js.org/) and [Symfony Webpack
+Encore](https://symfony.com/doc/current/frontend.html) to automate most of the
+build process. These will have been installed for you if you followed the Yarn
+installation instructions above.
+
+If you have [yarn.BUILD](https://yarn.build/) installed, you can run:
 
 ```
-npm install -g grunt-cli
+yarn build
 ```
 
-Once that's installed, you can then install all the required Node modules by
-running ```npm install``` in the project root.
+from the root of your Drupal site. If you want to build just this package, run:
 
-To build the favicons, you'll also need to install
-[ImageMagick](https://imagemagick.org/).
+```
+yarn workspace ambientimpact-drupal-themes run build
+```
 
-## Building
-
-To build everything, you can run ```grunt all``` in the commandline in the
-project root.
-
-To build specific things:
-
-* ```grunt css``` - builds all CSS files and their associated map files.
-
-* ```grunt favicons``` - builds all the shortcut/browser icons for the theme, using [japrescott/grunt-favicons](https://github.com/japrescott/grunt-favicons); requires [ImageMagick](https://imagemagick.org/) to be installed.
+----
 
 # Major breaking changes
 
