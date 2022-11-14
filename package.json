@@ -12,6 +12,7 @@
   },
   "yarn.build": {
     "input": [
+      "webpack.config.js",
       "**/stylesheets/**/*.scss",
       "ambientimpact_site/images/icons/*.{png,svg}"
     ],
