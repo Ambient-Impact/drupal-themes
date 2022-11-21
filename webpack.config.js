@@ -175,6 +175,12 @@ Encore
 // Disable the Encore image rule because we provide our own loader config.
 .configureImageRule({enabled: false})
 
+// Disable the Encore font rule for now as we only provide one font that hasn't
+// changed since 2009.
+//
+// @todo Remove this and pull font in via Yarn; version via Webpack.
+.configureFontRule({enabled: false})
+
 // This disables asset bundling/copying for certain asset types.
 //
 // @see https://stackoverflow.com/questions/68737296/disable-asset-bundling-in-webpack-5#68768905
