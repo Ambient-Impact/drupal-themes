@@ -1,13 +1,8 @@
-This respository contains a Drupal base theme intended to be used across
-multiple sites (```ambientimpact_base```) and the theme used on
-[ambientimpact.com](https://ambientimpact.com/) (```ambientimpact_site```).
+This respository contains the Drupal theme used on
+[ambientimpact.com](https://ambientimpact.com/).
 
-Note that these require various
-[```ambientimpact_*```](https://gitlab.com/Ambient.Impact/drupal-modules)
-modules being present in your Drupal installation.
-
-**Warning**: while these are generally production-ready, they're not guaranteed
-to maintain a stable API and may occasionally contain bugs, being a
+**Warning**: while this is generally production-ready, it's not guaranteed to
+maintain a stable API and may occasionally contain bugs, being a
 work-in-progress. Stable releases may be provided at a later date.
 
 ----
@@ -24,6 +19,8 @@ work-in-progress. Stable releases may be provided at a later date.
 
 * Several [```ambientimpact_*``` modules](https://github.com/Ambient-Impact/drupal-modules) must be present.
 
+* The [`ambientimpact_base` theme](https://github.com/Ambient-Impact/drupal-ambientimpact-base) is required. Follow the installation instructions for that before requiring this theme.
+
 ## Front-end dependencies
 
 To build front-end assets for this project, [Node.js](https://nodejs.org/) and
@@ -35,11 +32,27 @@ To build front-end assets for this project, [Node.js](https://nodejs.org/) and
 
 ## Composer
 
-This is a partly legacy codebase, and as such, Composer installation of the
-themes in this repository isn't supported directly. You'll have to check out
-the repository into your Drupal themes directory, optionally as a Git
-submodule. The long term plan is to refactor these as individual Composer
-packages, but for now, manual installation is required.
+Ensure that you have your Drupal installation set up with the correct Composer
+installer types such as those provided by [the ```drupal\recommended-project```
+template](https://www.drupal.org/docs/develop/using-composer/starting-a-site-using-drupal-composer-project-templates#s-drupalrecommended-project).
+If you're starting from scratch, simply requiring that template and following
+[the Drupal.org Composer
+documentation](https://www.drupal.org/docs/develop/using-composer/starting-a-site-using-drupal-composer-project-templates)
+should get you up and running.
+
+Then, in your root ```composer.json```, add the following to the
+```"repositories"``` section:
+
+```json
+"drupal/ambientimpact_site": {
+  "type": "vcs",
+  "url": "https://github.com/neurocracy/drupal-ambientimpact-site.git"
+}
+```
+
+Then, in your project's root, run ```composer require
+"drupal/ambientimpact_site:5.x-dev@dev"``` to have Composer install the theme
+and its required dependencies for you.
 
 ## Front-end assets
 
@@ -53,7 +66,7 @@ project, you'll need to add the following:
 
 ```json
 "workspaces": [
-  "<web directory>/themes/ambientimpact/*"
+  "<web directory>/themes/custom/*"
 ],
 ```
 
@@ -62,7 +75,7 @@ Once those are defined, add the following to the `"dependencies"` section of
 your top-level `package.json`:
 
 ```json
-"ambientimpact-drupal-themes": "workspace:^5"
+"drupal-ambientimpact-site": "workspace:^5"
 ```
 
 Then run `yarn install` and let Yarn do the rest.
@@ -108,7 +121,7 @@ yarn build
 from the root of your Drupal site. If you want to build just this package, run:
 
 ```
-yarn workspace ambientimpact-drupal-themes run build
+yarn workspace drupal-ambientimpact-site run build
 ```
 
 ----
