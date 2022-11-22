@@ -1,6 +1,6 @@
 {
-  "name": "drupal/ambientimpact_site",
-  "description": "Ambient.Impact - Site theme",
+  "name": "drupal/ambientimpact_base",
+  "description": "Ambient.Impact - Base theme",
   "type": "drupal-custom-theme",
   "license": "GPL-2.0-or-later",
   "authors": [
@@ -9,8 +9,5 @@
       "homepage": "https://ambientimpact.com/",
       "role": "Developer"
     }
-  ],
-  "require": {
-    "kartsims/easysvg": "^1.0"
-  }
+  ]
 }

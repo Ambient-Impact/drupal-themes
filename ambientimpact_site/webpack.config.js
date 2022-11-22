@@ -2,7 +2,7 @@
 
 const autoprefixer = require('autoprefixer');
 const baseThemeImporter = require(
-  'ambientimpact-drupal-themes/baseThemeImporter'
+  'drupal-ambientimpact-base/baseThemeImporter'
 );
 const componentPaths = require('ambientimpact-drupal-modules/componentPaths');
 const easingGradients = require('postcss-easing-gradients');
@@ -119,8 +119,8 @@ Encore
   // @todo Create a maskable logo variant for the logoMaskable config option.
   //
   // @see https://maskable.app/
-  logo:       './ambientimpact_site/images/icons/icon.png',
-  outputPath: './ambientimpact_site/images/icons/generated',
+  logo:       './images/icons/icon.png',
+  outputPath: './images/icons/generated',
 
   favicons: {
 

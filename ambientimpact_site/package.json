@@ -1,24 +1,20 @@
 {
-  "name": "ambientimpact-drupal-themes",
+  "name": "drupal-ambientimpact-site",
   "version": "5.0.0",
   "license": "GPL-2.0",
-  "repository": "gitlab:Ambient.Impact/drupal-themes",
+  "repository": "github:Ambient-Impact/drupal-ambientimpact-site",
   "scripts": {
     "build": "webpack --progress --config webpack.config.js"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    "./baseThemeImporter": "./ambientimpact_base/javascript/base_theme_importer.js"
   },
   "yarn.build": {
     "input": [
       "webpack.config.js",
       "**/stylesheets/**/*.scss",
-      "ambientimpact_site/images/icons/*.{png,svg}"
+      "images/icons/*.{png,svg}"
     ],
     "output": [
       "**/stylesheets/**/*.css",
-      "ambientimpact_site/images/icons/generated/*"
+      "images/icons/generated/*"
     ]
   },
   "devDependencies": {
@@ -36,12 +32,12 @@
     "postcss-loader": "^7.0.1",
     "sass": "^1.43.4",
     "sass-loader": "^13.1.0",
-    "sassy-cast": "github:Ambient-Impact/SassyCast#adbbd499bb36eb0c7015ae6f23c00e3a78dc54b3",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-remove-empty-scripts": "^1.0.1"
   },
   "dependencies": {
-    "ambientimpact-drupal-modules": "workspace:^6"
+    "ambientimpact-drupal-modules": "workspace:^6",
+    "drupal-ambientimpact-base": "workspace:^5"
   }
 }
