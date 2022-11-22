@@ -1,3 +1,15 @@
+This respository has been
+[split](https://shantanoo-desai.github.io/posts/technology/git_subtree/) into
+separate repositories for each theme as per Drupal best practices:
+
+* [Ambient-Impact/drupal-ambientimpact-base](https://github.com/Ambient-Impact/drupal-ambientimpact-base)
+
+* [Ambient-Impact/drupal-ambientimpact-site](https://github.com/Ambient-Impact/drupal-ambientimpact-site)
+
+Please migrate to those as this repository is now archived and not recommended.
+
+----
+
 This respository contains a Drupal base theme intended to be used across
 multiple sites (```ambientimpact_base```) and the theme used on
 [ambientimpact.com](https://ambientimpact.com/) (```ambientimpact_site```).
